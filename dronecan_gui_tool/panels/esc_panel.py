@@ -18,7 +18,7 @@ import time
 
 __all__ = 'PANEL_NAME', 'spawn', 'get_icon'
 
-PANEL_NAME = 'ESC Panel'
+PANEL_NAME = 'ESC Panel by BSLabs'
 
 
 logger = getLogger(__name__)
@@ -112,7 +112,7 @@ class ESCPanel(QDialog):
 
     def __init__(self, parent, node):
         super(ESCPanel, self).__init__(parent)
-        self.setWindowTitle('ESC Management Panel')
+        self.setWindowTitle('ESC Management Panel by BSLabs')
         self.setAttribute(Qt.WA_DeleteOnClose)              # This is required to stop background timers!
 
         self._node = node
@@ -125,7 +125,7 @@ class ESCPanel(QDialog):
         self._sliders = [PercentSlider(index, self) for index in range(4)]
 
         self._num_sliders = QSpinBox(self)
-        self._num_sliders.setMinimum(len(self._sliders))
+        self._num_sliders.setMinimum(1)
         self._num_sliders.setMaximum(20)
         self._num_sliders.setValue(len(self._sliders))
         self._num_sliders.valueChanged.connect(self._update_number_of_sliders)
