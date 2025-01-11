@@ -114,8 +114,9 @@ def list_ifaces():
             out[x] = x
 
         try:
-            from can import detect_available_configs
-            for interface in detect_available_configs():
+            import can
+            iface = can.detect_available_config()
+            for interface in iface:
                 if interface['interface'] == "pcan":
                     out[interface['channel']] = interface['channel']
         except Exception as ex:
